@@ -25,4 +25,7 @@ This project is a cryptocurrency application that lists the top 10 cryptocurrenc
 
 # App Version: V3
 
-
+## Features: V1:
+- first layout
+- mobile layout
+- api implementation
