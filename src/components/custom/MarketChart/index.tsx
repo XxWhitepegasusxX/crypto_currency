@@ -40,12 +40,13 @@ export function MarketChart({id}: MarketChartProps){
       }
     
     const coinPriceData = chart.prices.map(value => ({ x: value[0], y: value[1].toFixed(2) }));
-    //const coinMarketCap = chart.market_caps.map(value => ({ x: value[0], y: value[1].toFixed(2) }));
-    //const coinTotalVolume = chart.total_volumes.map(value => ({ x: value[0], y: value[1].toFixed(2) }));
+    const coinMarketCap = chart.market_caps.map(value => ({ x: value[0], y: value[1].toFixed(2) }));
+    const coinTotalVolume = chart.total_volumes.map(value => ({ x: value[0], y: value[1].toFixed(2) }));
   
     const options = {
         responsive: true,
-        maintainAspectRatio: true
+        maintainAspectRatio: true,
+        
       };
     const data = {
         labels: coinPriceData.map(value => moment(value.x).format('MMM DD')),
@@ -57,31 +58,29 @@ export function MarketChart({id}: MarketChartProps){
             borderColor: 'rgb(53, 162, 235)',
             backgroundColor: 'rgba(53, 162, 235, 0.5)',
         },
-        // {
-        //     label: 'Total Volume',
-        //     fill:true,
-        //     data: coinTotalVolume.map(val => val.y),
-        //     borderColor: 'rgb(255, 99, 132)',
-        //     backgroundColor: 'rgba(255, 99, 132, 0.5)',
-        // },
-        // {
-        //     label: 'Market Cap 2',
-        //     fill: true,
-        //     data: coinMarketCap.map(val => val.y),
-        //     borderColor: 'rgb(192, 75, 192)',
-        //     backgroundColor: 'rgba(192, 75, 192, 0.5)',
-        // }
+        {
+            label: 'Total Volume',
+            fill:true,
+            data: coinTotalVolume.map(val => val.y),
+            borderColor: 'rgb(255, 99, 132)',
+            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        },
+        {
+            label: 'Market Cap 2',
+            fill: true,
+            data: coinMarketCap.map(val => val.y),
+            borderColor: 'rgb(192, 75, 192)',
+            backgroundColor: 'rgba(192, 75, 192, 0.5)',
+        }
         ]
     }
 
 
 
     return(
-        <section className="w-full flex flex-col items-center justify-center">
+        <section className="w-full flex relative container flex-col items-center justify-center">
             <h2 className="font-bold text-3xl">Price History</h2>
-            <div className="container m-4">
-                <Line data={data} options={options}/>
-            </div>
+                <Line className="" data={data} options={options}/>
         </section>
     )
 }
