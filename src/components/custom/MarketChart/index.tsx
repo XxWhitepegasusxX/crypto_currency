@@ -29,7 +29,6 @@ ChartJS.register(
 
 export function MarketChart({id}: MarketChartProps){
     const {data: chart } = useMarketChart(id)
-    console.log(chart)
 
     if(!chart) {
         return (

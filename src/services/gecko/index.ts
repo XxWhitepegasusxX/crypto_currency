@@ -6,7 +6,6 @@ import { ChartResponse, Coin, CoinDetails, QueryCoins, TrendingCoin } from './ty
 
 async function getTrending(): Promise<TrendingCoin[]> {
     const { data } = await geckoApi<TrendingCoin[]>('/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false')
-    console.log('data:',data)
     return data.slice(0,10)
 }
 
@@ -37,7 +36,6 @@ async function queryCoins(search: string): Promise<Coin[]>{
     const { data } = await geckoApi.get<QueryCoins>('/search', {
         params: {query: search}
     })
-    console.log(data.coins)
     return data.coins.slice(0,10)
 }
 

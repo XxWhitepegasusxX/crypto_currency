@@ -1,5 +1,5 @@
 import axios from "axios";
 
-export const geckoApi = axios({
+export const metaMask = axios({
     baseURL: ''
 })
