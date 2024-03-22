@@ -12,6 +12,7 @@ import {
 import detectEthereumProvider from "@metamask/detect-provider";
 import { toast } from '@/components/ui/use-toast';
 import { formatBalance } from '@/utils';
+import { Link } from 'react-router-dom';
 
 interface AccountProps{
     accounts: string[],
@@ -87,7 +88,9 @@ export function MetaButton(){
         setIsConnecting(true);
         if(!hasProvider){
             toast({
-                title: 'Provider not found'
+                title: 'Provider not found',
+                description: 'Please install a provider in your browser',
+                variant: 'destructive'
             })
         }
         await window.ethereum
@@ -120,6 +123,11 @@ export function MetaButton(){
 
     const disableConnect = Boolean(wallet) && isConnecting;
 
+    if (!window.ethereum?.isMetaMask && wallet.accounts.length < 1) return (
+        <Link to={"https://metamask.io/download/"} target='_blank'>
+            <Button>Install Provider</Button>
+        </Link>
+    )
     if (window.ethereum?.isMetaMask && wallet.accounts.length < 1) return (
         <Button disabled={disableConnect} onClick={handleConnect}>Connect Meta-Mask</Button>
     )
