@@ -2,11 +2,8 @@ import { Link } from "react-router-dom";
 import { Gem } from 'lucide-react';
 import { MetaButton } from "../MetaButton";
 
-interface HeaderProps{
-    balance?: string
-}
 
-export default function Header({balance = '0.00'}: HeaderProps){
+export default function Header(){
     return (
         <header className="flex w-full justify-between p-6 px-6 sm:px-10">
                 <Link to={'/'}>
@@ -16,7 +13,7 @@ export default function Header({balance = '0.00'}: HeaderProps){
                         <h2 className="font-bold text-2xl text-nowrap sm:hidden">CC</h2>
                     </div>
                 </Link>
-                <MetaButton balance={balance}/>
+                <MetaButton/>
         </header>
     ) 
 }

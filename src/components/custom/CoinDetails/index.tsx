@@ -25,16 +25,19 @@ export function CoinDetails({id = 'bitcoin'}: CoinDetailsProps){
 
     return (
         <section className="w-full flex flex-col gap-5 mb-10">
-            <div className="w-full flex p-4 bg-neutral-100 items-center justify-around">
-                <div className="flex flex-col">
-                    <h2 className="font-bold text-xl sm:text-5xl">{coin.name}({coin.symbol.toLocaleUpperCase()})</h2>
+            <div className="container grid md:grid-cols-3 gap-8 items-start py-8">
+                <div className="md:col-span-2">
+                    <h2 className="text-4xl font-bold leading-tight mb-4">{coin.name}</h2>
+                    {/* biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation> */}
+                    <p className="text-gray-600 text-base leading-relaxed" dangerouslySetInnerHTML={{ __html: coin.description.en }}/>
                 </div>
-                <img className="w-24 sm:w-48" src={`${coin.image.large}`} alt="coin"/>
-            </div>
-            <div className="flex flex-col items-center justify-center">
-                <h2 className="font-bold text-3xl">Description</h2>
-                {/* biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation> */}
-                <p className='text-sm container' dangerouslySetInnerHTML={{ __html: coin.description.en }}/>
+                <div className="flex justify-center md:justify-end">
+                    <img
+                    alt="Coin Logo"
+                    className="w-10/12 animate-pulse"
+                    src={coin.image.large}
+                    />
+                </div>
             </div>
             <Separator className="max-w-xl mx-auto"/>
             <MarketChart id={id}/>

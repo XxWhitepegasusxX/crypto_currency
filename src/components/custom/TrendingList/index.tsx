@@ -57,7 +57,7 @@ export function TrendingList() {
           <div className="flex flex-col gap-2">
             <div className="overflow-auto border sm:rounded-lg">
               <Table className="w-full">
-                <TableCaption>Top 10 Trending Crypto</TableCaption>
+                <TableCaption>Top 10 Trending Crypto (By Market Cap)</TableCaption>
                 <TableHeader className="w-full">
                   <TableRow className="">
                     <TableHead className="text-center" >Symbol</TableHead>

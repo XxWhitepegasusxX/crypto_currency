@@ -65,7 +65,7 @@ export function MarketChart({id}: MarketChartProps){
             backgroundColor: 'rgba(255, 99, 132, 0.5)',
         },
         {
-            label: 'Market Cap 2',
+            label: 'Market Cap',
             fill: true,
             data: coinMarketCap.map(val => val.y),
             borderColor: 'rgb(192, 75, 192)',
