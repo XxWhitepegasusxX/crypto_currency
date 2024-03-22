@@ -6,7 +6,7 @@ interface HeaderProps{
     balance?: string
 }
 
-export default function Header({balance = '0'}: HeaderProps){
+export default function Header({balance = '0.00'}: HeaderProps){
     return (
         <header className="flex w-full justify-between p-6 px-6 sm:px-10">
                 <Link to={'/'}>

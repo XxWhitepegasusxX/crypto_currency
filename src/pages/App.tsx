@@ -10,9 +10,11 @@ import detectEthereumProvider from '@metamask/detect-provider'
 
 const App = () => {
   const initialState = { accounts: [], balance: "", chainId: "" }
-  const [wallet, setWallet] = useState<any>(initialState)
-
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  const  [wallet, setWallet] = useState<typeof initialState | any>(initialState)
+  
   useEffect(() => {
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     const refreshAccounts = (accounts: any) => {
       if (accounts.length > 0) {
         updateWallet(accounts)
@@ -47,7 +49,8 @@ const App = () => {
     }
   }, [])
 
-  const updateWallet = async (accounts: any) => {
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+const  updateWallet = async (accounts: any) => {
     const balance = formatBalance(await window.ethereum?.request({
       method: "eth_getBalance",
       params: [accounts[0], "latest"],

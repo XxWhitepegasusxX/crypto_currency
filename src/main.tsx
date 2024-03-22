@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <Provider>
     <MetaMaskProvider debug={false} sdkOptions={{
       dappMetadata: {
-        name: "Example React Dapp",
+        name: "Crypto Currency",
         url: window.location.href,
       },
     }}
