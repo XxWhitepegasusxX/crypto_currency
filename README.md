@@ -17,15 +17,7 @@ This project is a cryptocurrency application that lists the top 10 cryptocurrenc
  - Tailwind
  - ShadCn
  - Axios
- - Redux
  - Vite
  - Typescript
 
 *** This app uses CoinGecko API as the data source ***
-
-# App Version: V3
-
-## Features: V1:
-- first layout
-- mobile layout
-- api implementation
